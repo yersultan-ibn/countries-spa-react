@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
-import styled from "styled-components";
+import { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-import { Search } from "./Search";
-import { CustomSelect } from "./CustomSelect";
+import { Search } from './Search';
+import { CustomSelect } from './CustomSelect';
 
 const options = [
-  { value: "Africa", label: "Africa" },
-  { value: "America", label: "America" },
-  { value: "Asia", label: "Asia" },
-  { value: "Europe", label: "Europe" },
-  { value: "Oceania", label: "Oceania" },
+  { value: 'Africa', label: 'Africa' },
+  { value: 'America', label: 'America' },
+  { value: 'Asia', label: 'Asia' },
+  { value: 'Europe', label: 'Europe' },
+  { value: 'Oceania', label: 'Oceania' },
 ];
 
 const Wrapper = styled.div`
@@ -24,13 +24,15 @@ const Wrapper = styled.div`
   }
 `;
 
-export const Controls = ({ handleSearch }) => {
-  const [search, setSearch] = useState("");
-  const [region, setRegion] = useState("");
+export const Controls = ({ onSearch }) => {
+  const [search, setSearch] = useState('');
+  const [region, setRegion] = useState('');
 
   useEffect(() => {
-    const filterRegion = region?.value || '';
-    handleSearch(search, filterRegion)
+    const regionValue = region?.value || '';
+    onSearch(search, regionValue);
+
+    // eslint-disable-next-line
   }, [search, region]);
 
   return (

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Wrapper = styled.article`
   border-radius: var(--radii);
@@ -42,17 +42,17 @@ const CardListItem = styled.li`
     font-weight: var(--fw-bold);
   }
 `;
+
 export const Card = ({ img, name, info = [], onClick }) => {
   return (
     <Wrapper onClick={onClick}>
-      <CardImage  src={img} alt={name}/>
+      <CardImage src={img} alt={name} />
       <CardBody>
-        <CardTitle></CardTitle>
+        <CardTitle>{name}</CardTitle>
         <CardList>
           {info.map((el) => (
             <CardListItem key={el.title}>
-              <b>{el.title}:</b>
-              {el.description}
+              <b>{el.title}:</b> {el.description}
             </CardListItem>
           ))}
         </CardList>

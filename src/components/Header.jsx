@@ -35,32 +35,29 @@ const ModeSwitcher = styled.div`
 `;
 
 export const Header = () => {
-const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('light');
 
+  const toggleTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
 
+  useEffect(() => {
+    document.body.setAttribute('data-theme', theme);
+  }, [theme]);
 
-const toggleThem = () => setTheme(theme === 'light' ? 'dark' : 'light');
-
-useEffect(() => {
-    document.body.setAttribute('data-theme', theme)
-},[theme])
-
-
-    return (
-        <HeaderEl>
-        <Container>
-          <Wrapper>
-            <Title>Where is the world?</Title>
-            <ModeSwitcher onClick={() => toggleThem()} >
-         {theme === 'light' ? (
-            <IoMoonOutline size="14px" />
-         ) : ( 
-        <IoMoon size="14px" />)}
-              <span style={{ marginLeft: '0.75rem' }}> {theme}</span>
-            </ModeSwitcher>
-          </Wrapper>
-        </Container>
-      </HeaderEl>
-    );
+  return (
+    <HeaderEl>
+      <Container>
+        <Wrapper>
+          <Title>Where is the world?</Title>
+          <ModeSwitcher onClick={toggleTheme}>
+            {theme === 'light' ? (
+              <IoMoonOutline size="14px" />
+            ) : (
+              <IoMoon size="14px" />
+            )}{' '}
+            <span style={{ marginLeft: '0.75rem' }}>{theme} Theme</span>
+          </ModeSwitcher>
+        </Wrapper>
+      </Container>
+    </HeaderEl>
+  );
 };
-

@@ -9,10 +9,10 @@ const Wrapper = styled.main`
   }
 `;
 
-export const Main = ({children}) => {
-    return (
-        <Wrapper>
-            <Container>{children}</Container>
-        </Wrapper>
-    );
+export const Main = ({ children }) => {
+  return (
+    <Wrapper>
+      <Container>{children}</Container>
+    </Wrapper>
+  );
 };
